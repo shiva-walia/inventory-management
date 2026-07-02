@@ -5,14 +5,18 @@ from sqlalchemy import text
 from jose import JWTError, jwt
 from pydantic import BaseModel
 from datetime import datetime, timedelta
-from app.db.database import get_db
+from backend.app.db.database import get_db
 import bcrypt
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 router = APIRouter()
 
-SECRET_KEY = "your-super-secret-key-change-in-production"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 60
+SECRET_KEY = os.getenv("SECRET_KEY")
+ALGORITHM = os.getenv("ALGORITHM", "HS256")
+ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "60"))
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 

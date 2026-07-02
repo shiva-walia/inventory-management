@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 
 load_dotenv()
 
-DATABASE_URL = "postgresql+asyncpg://postgres:RKyFZKjLGBprebyandamORWayoCvPZQw@reseau.proxy.rlwy.net:18187/railway"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 print(f"Connecting to: {DATABASE_URL}")  # will show in terminal
 
