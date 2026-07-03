@@ -5,7 +5,7 @@ from sqlalchemy import text
 from jose import JWTError, jwt
 from pydantic import BaseModel
 from datetime import datetime, timedelta
-from backend.app.db.database import get_db
+from app.db.database import get_db
 import bcrypt
 import os
 from dotenv import load_dotenv
@@ -14,7 +14,7 @@ load_dotenv()
 
 router = APIRouter()
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret-change-in-production")
 ALGORITHM = os.getenv("ALGORITHM", "HS256")
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "60"))
 
