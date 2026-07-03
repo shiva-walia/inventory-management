@@ -7,4 +7,4 @@ venv/
 .DS_Store
 *.egg-info/
 .streamlit/secrets.toml
-assets/login-bg.jpg
+
