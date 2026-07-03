@@ -179,20 +179,19 @@ if "token" not in st.session_state:
     </div>
     """, unsafe_allow_html=True)
 
-    col_spacer, col_card = st.columns([5, 3])
-    with col_card:
-        st.markdown('<div class="login-card-wrap"><div class="login-card-head">Sign In</div><div class="login-card-body">', unsafe_allow_html=True)
-        username = st.text_input("Username", key="login_user")
-        password = st.text_input("Password", type="password", key="login_pass")
-        if st.button("Sign In", use_container_width=True, key="login_btn"):
-            token = login(username, password)
-            if token:
-                st.session_state.token = token
-                st.session_state.username = username
-                st.rerun()
-            else:
-                st.error("Invalid username or password.")
-        st.markdown('</div></div>', unsafe_allow_html=True)
+    # Login form inputs — positioned via CSS fixed card
+    st.markdown('<div style="position:fixed;right:7vw;top:50%;transform:translateY(-50%);z-index:2;width:360px;">', unsafe_allow_html=True)
+    username = st.text_input("Username", key="login_user", label_visibility="collapsed", placeholder="Username")
+    password = st.text_input("Password", type="password", key="login_pass", label_visibility="collapsed", placeholder="Password")
+    if st.button("Sign In", use_container_width=True, key="login_btn"):
+        token = login(username, password)
+        if token:
+            st.session_state.token = token
+            st.session_state.username = username
+            st.rerun()
+        else:
+            st.error("Invalid username or password.")
+    st.markdown('</div>', unsafe_allow_html=True)
     st.stop()
 
 
