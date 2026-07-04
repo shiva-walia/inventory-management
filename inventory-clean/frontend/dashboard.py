@@ -3,9 +3,13 @@ import requests
 import pandas as pd
 import base64
 import os
-
+try:
+    BASE_URL = st.secrets["API_URL"]
+except:
+    BASE_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
 BASE_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
-
+if hasattr(st, 'secrets') and 'API_URL' in st.secrets:
+    BASE_URL = st.secrets['API_URL']
 st.set_page_config(page_title="Inventory Control", page_icon=None, layout="wide", initial_sidebar_state="expanded")
 
 
