@@ -16,13 +16,13 @@ The system manages products, categories, suppliers, and stock transactions, with
 
 ## Features
 
-- 🔐 **JWT authentication** — bcrypt-hashed passwords, token-protected routes on every module except `/auth`
-- 📦 **Product, category & supplier management** — full CRUD with relational integrity (products link to categories via foreign key)
-- 🔁 **Stock transactions** — inbound/outbound movement logging, plus a bulk-adjust endpoint for updating multiple products at once
-- 📊 **Reports** — low-stock alerts, inventory summary, and an audit log endpoint
-- ⚡ **Fully async backend** — SQLAlchemy 2.0 async ORM with `asyncpg`
-- 🎨 **Custom Streamlit dashboard** — dark sidebar, IBM Plex Sans/Mono typography, status-coded badges (ok / warning / critical)
-- ☁️ **Cloud deployed** — backend on Render, dashboard on Streamlit Cloud, database on Neon (hosted PostgreSQL)
+- **JWT authentication** — bcrypt-hashed passwords, token-protected routes on every module except `/auth`
+- **Product, category & supplier management** — full CRUD with relational integrity (products link to categories via foreign key)
+- **Stock transactions** — inbound/outbound movement logging, plus a bulk-adjust endpoint for updating multiple products at once
+- **Reports** — low-stock alerts, inventory summary, and an audit log endpoint
+- **Fully async backend** — SQLAlchemy 2.0 async ORM with `asyncpg`
+- **Custom Streamlit dashboard** — dark sidebar, IBM Plex Sans/Mono typography, status-coded badges (ok / warning / critical)
+- **Cloud deployed** — backend on Render, dashboard on Streamlit Cloud, database on Neon (hosted PostgreSQL)
 
 ---
 
