@@ -328,7 +328,7 @@ elif page == "Products":
 
 elif page == "Transactions":
     topbar("Transactions", "STOCK MOVEMENT LOG")
-    products = api_get("/products/", params={"page_size": 200})
+    products = api_get("/products/", params={"page_size": 100})
     prod_map = {f'{p["sku"]} — {p["name"]}': p["id"] for p in products}
     col1, col2 = st.columns([1, 2], gap="medium")
     with col1:
