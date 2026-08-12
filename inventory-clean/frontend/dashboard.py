@@ -338,12 +338,15 @@ elif page == "Transactions":
         quantity = st.number_input("Quantity", min_value=1, value=1)
         note = st.text_input("Reference", value="Manual entry")
         if st.button("Submit", use_container_width=True):
-            res = api_post("/transactions/", {"product_id": prod_map[prod_label], "txn_type": txn_type, "quantity": quantity, "reference_note": note})
-            if res.status_code == 201:
-                st.success(f"{txn_type} of {quantity} units recorded.")
-                st.rerun()
+            if not prod_map or not prod_label:
+                st.error("No products available. Add a product first.")
             else:
-                st.error(res.json().get("detail", "Transaction failed."))
+                res = api_post("/transactions/", {"product_id": prod_map[prod_label], "txn_type": txn_type, "quantity": quantity, "reference_note": note})
+                if res.status_code == 201:
+                    st.success(f"{txn_type} of {quantity} units recorded.")
+                    st.rerun()
+                else:
+                    st.error(res.json().get("detail", "Transaction failed."))
     with col2:
         st.markdown('<div class="sec-label">Recent Movement</div>', unsafe_allow_html=True)
         txns = api_get("/transactions/", params={"limit": 50})
