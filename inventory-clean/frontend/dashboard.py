@@ -138,7 +138,7 @@ def df(data):
 if "token" not in st.session_state:
     bg_style = f"""
         .login-hero {{
-            position: fixed; inset: 0;
+            position: absolute; inset: 0;
             background:
                 linear-gradient(150deg, rgba(8,9,11,0.88) 0%, rgba(8,9,11,0.55) 50%, rgba(8,9,11,0.90) 100%),
                 url("data:image/jpg;base64,{LOGIN_BG}");
@@ -147,7 +147,7 @@ if "token" not in st.session_state:
         }}
     """ if LOGIN_BG else """
         .login-hero {
-            position: fixed; inset: 0;
+            position: absolute; inset: 0;
             background: linear-gradient(150deg, rgba(8,9,11,0.92) 0%, rgba(8,9,11,0.75) 55%, rgba(8,9,11,0.94) 100%),
                         radial-gradient(ellipse at 30% 20%, #4a4d52 0%, #1c1d1f 45%, #050506 100%);
             z-index: 0;
@@ -157,7 +157,8 @@ if "token" not in st.session_state:
     st.markdown("""<style>.block-container { padding: 0 !important; max-width: 100% !important; }</style>"""
         + f"<style>{bg_style}</style>" + """
     <style>
-        .login-brand { position: fixed; left: 6vw; top: 0; bottom: 0; display: flex;
+        .login-page { position: relative; min-height: 100vh; width: 100%; }
+        .login-brand { position: absolute; left: 6vw; top: 0; bottom: 0; display: flex;
                        flex-direction: column; justify-content: center; z-index: 1; max-width: 480px; }
         .login-eyebrow { font-family: 'IBM Plex Mono',monospace; font-size: 0.74rem; font-weight: 600;
                          letter-spacing: 0.14em; text-transform: uppercase; color: #9aa1ab; margin-bottom: 14px; }
@@ -167,19 +168,20 @@ if "token" not in st.session_state:
                       line-height: 1.6; max-width: 380px; margin-bottom: 28px; }
         .login-meta { font-family: 'IBM Plex Mono',monospace; font-size: 0.72rem; color: #6b7280;
                       border-top: 1px solid #3a4150; padding-top: 14px; letter-spacing: 0.03em; }
-        .login-card-wrap { position: fixed; right: 7vw; top: 50%; transform: translateY(-50%); z-index: 1; width: 360px; }
         .login-card-head { font-family: 'IBM Plex Mono',monospace; font-size: 0.78rem; font-weight: 700;
                            letter-spacing: 0.06em; text-transform: uppercase; color: #14181f;
                            background: #f4f5f7; padding: 12px 18px; border-bottom: 2px solid #14181f; }
         .login-card-body { background: #fff; padding: 22px 18px 24px 18px; border: 1px solid #d8dde3; border-top: none; }
     </style>
-    <div class="login-hero"></div>
-    <div class="login-brand">
-        <div class="login-eyebrow">Sonalika &middot; ITL Internal Systems</div>
-        <div class="login-heading">Inventory<br>Control</div>
-        <div class="login-desc">Real-time stock tracking across categories, suppliers, and warehouse locations.
-             Built on PostgreSQL with full audit history and reorder alerting.</div>
-        <div class="login-meta">SECURE ACCESS &middot; JWT AUTHENTICATED &middot; v2.0</div>
+    <div class="login-page">
+        <div class="login-hero"></div>
+        <div class="login-brand">
+            <div class="login-eyebrow">Sonalika &middot; ITL Internal Systems</div>
+            <div class="login-heading">Inventory<br>Control</div>
+            <div class="login-desc">Real-time stock tracking across categories, suppliers, and warehouse locations.
+                 Built on PostgreSQL with full audit history and reorder alerting.</div>
+            <div class="login-meta">SECURE ACCESS &middot; JWT AUTHENTICATED &middot; v2.0</div>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
