@@ -225,7 +225,9 @@ streamlit run dashboard.py
 
 ## Screenshots
 
-*(Add 2-3 screenshots here — the login screen, main dashboard, and a report view work well.)*
+<img width="1916" height="994" alt="image" src="https://github.com/user-attachments/assets/48992c06-8219-4b4c-893d-3d48628925f0" />
+<img width="1919" height="1023" alt="image" src="https://github.com/user-attachments/assets/1cdcc36b-b788-41ca-88c0-1cad5238fed3" />
+
 
 ```
 ![Dashboard](screenshots/dashboard.png)
